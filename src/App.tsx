@@ -2,17 +2,17 @@ import { useState } from "react";
 import styles from "./App.module.css";
 import abacoImg from "./assets/abaco.png";
 import { levels, calculateImc } from "./helpers/imc";
+import { GridItem } from "./components/gridItem";
 
 const App = () => {
   const [heightField, setHeightField] = useState<number>(0);
   const [weightField, setWeightField] = useState<number>(0);
   const handleCalculate = () => {
-    if(heightField && weightField){
-
-    } else{
-      alert ("Digite todos os campos.")
+    if (heightField && weightField) {
+    } else {
+      alert("Digite todos os campos.");
     }
-  }
+  };
   return (
     <div className={styles.main}>
       <header>
@@ -28,7 +28,7 @@ const App = () => {
             Mundial da Saúde (OMS) como um padrãointernacional que avalia se as
             pessoas, entre 20 e 59 anos, estão com peso ideal.
           </p>
-          <input 
+          <input
             type="number"
             placeholder="Digite a sua altura. Ex: 74.3 (em métros)"
             value={heightField > 0 ? heightField : ""}
@@ -44,7 +44,13 @@ const App = () => {
 
           <button onClick={handleCalculate}>Calcular</button>
         </div>
-        <div className={styles.rightSide}>...</div>
+        <div className={styles.rightSide}>
+          <div className={styles.grid}>
+            {levels.map((item, key) => (
+              <GridItem key={key} item={item} />
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );

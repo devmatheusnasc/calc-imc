@@ -57,5 +57,13 @@ transition: all ease .3s;
 
 .container .rightSide {
     flex: 1;
+    display: flex;
     margin-left: 40px;
+}
+
+.container .rightSide .grid{
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
 }
