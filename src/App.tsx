@@ -1,18 +1,30 @@
 import { useState } from "react";
 import styles from "./App.module.css";
 import abacoImg from "./assets/abaco.png";
-import { levels, calculateImc } from "./helpers/imc";
+import { levels, calculateImc, Level } from "./helpers/imc";
 import { GridItem } from "./components/gridItem";
+import leftArrowImage from "./assets/leftarrow.png";
 
 const App = () => {
   const [heightField, setHeightField] = useState<number>(0);
   const [weightField, setWeightField] = useState<number>(0);
+  const [toShow, setToShow] = useState<Level | null>(null);
+ 
   const handleCalculate = () => {
     if (heightField && weightField) {
+      setToShow(calculateImc(heightField, weightField));
     } else {
       alert("Digite todos os campos.");
     }
   };
+  const handleBackButton = () => {
+    setToShow(null);
+    setHeightField(0);
+    setWeightField(0);
+  }
+
+
+  
   return (
     <div className={styles.main}>
       <header>
@@ -25,14 +37,15 @@ const App = () => {
           <h1>Calcule o seu IMC.</h1>
           <p>
             O Índice de Massa Corporal (IMC) é reconhecido pela Organização
-            Mundial da Saúde (OMS) como um padrãointernacional que avalia se as
-            pessoas, entre 20 e 59 anos, estão com peso ideal.
+            Mundial da Saúde (OMS) como um padrão internacional que avalia se as
+            pessoas, estão com peso ideal.
           </p>
           <input
             type="number"
             placeholder="Digite a sua altura. Ex: 74.3 (em métros)"
             value={heightField > 0 ? heightField : ""}
             onChange={(e) => setHeightField(parseFloat(e.target.value))}
+            disabled= {toShow ? true : false}
           />
 
           <input
@@ -40,16 +53,28 @@ const App = () => {
             placeholder="Digite o seu peso. Ex: 1.6 (em kg)"
             value={weightField > 0 ? weightField : ""}
             onChange={(e) => setWeightField(parseFloat(e.target.value))}
+            disabled= {toShow ? true : false}
           />
 
-          <button onClick={handleCalculate}>Calcular</button>
+          <button onClick={handleCalculate} disabled= {toShow ? true : false}>Calcular</button>
         </div>
         <div className={styles.rightSide}>
-          <div className={styles.grid}>
-            {levels.map((item, key) => (
-              <GridItem key={key} item={item} />
-            ))}
-          </div>
+          {!toShow && (
+            <div className={styles.grid}>
+              {levels.map((item, key) => (
+                <GridItem key={key} item={item} />
+              ))}
+            </div>
+          )}
+          {toShow && (
+            <div className={styles.rightBig}>
+              <div className={styles.rightArrow} onClick={handleBackButton}>
+                <img src={leftArrowImage} alt="" width={25} />
+              </div>
+
+              <GridItem item={toShow} />
+            </div>
+          )}
         </div>
       </div>
     </div>
