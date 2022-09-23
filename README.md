@@ -1,3 +1,8 @@
+# Calculadora de IMC
+
+Projeto desenvolvido em React + Typescript, afim de praticar estudos.
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

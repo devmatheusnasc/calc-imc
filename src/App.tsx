@@ -9,7 +9,7 @@ const App = () => {
   const [heightField, setHeightField] = useState<number>(0);
   const [weightField, setWeightField] = useState<number>(0);
   const [toShow, setToShow] = useState<Level | null>(null);
- 
+
   const handleCalculate = () => {
     if (heightField && weightField) {
       setToShow(calculateImc(heightField, weightField));
@@ -21,10 +21,8 @@ const App = () => {
     setToShow(null);
     setHeightField(0);
     setWeightField(0);
-  }
+  };
 
-
-  
   return (
     <div className={styles.main}>
       <header>
@@ -45,7 +43,7 @@ const App = () => {
             placeholder="Digite a sua altura. Ex: 74.3 (em métros)"
             value={heightField > 0 ? heightField : ""}
             onChange={(e) => setHeightField(parseFloat(e.target.value))}
-            disabled= {toShow ? true : false}
+            disabled={toShow ? true : false}
           />
 
           <input
@@ -53,10 +51,12 @@ const App = () => {
             placeholder="Digite o seu peso. Ex: 1.6 (em kg)"
             value={weightField > 0 ? weightField : ""}
             onChange={(e) => setWeightField(parseFloat(e.target.value))}
-            disabled= {toShow ? true : false}
+            disabled={toShow ? true : false}
           />
 
-          <button onClick={handleCalculate} disabled= {toShow ? true : false}>Calcular</button>
+          <button onClick={handleCalculate} disabled={toShow ? true : false}>
+            Calcular
+          </button>
         </div>
         <div className={styles.rightSide}>
           {!toShow && (
