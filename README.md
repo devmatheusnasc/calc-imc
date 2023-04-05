@@ -3,7 +3,8 @@
 Welcome to my BMI calculator! With it, you can calculate your Body Mass Index (BMI) and find out if you have a healthy weight.
 
 # How to use
-Access the website: [Click here to visit my website](https://calc-imc-cruz.netlify.app)
+Access the website: <a href="https://calc-imc-cruz.netlify.app" target="_blank">Click here to visit my website</a>
+
 
 Enter your weight and height in the indicated fields.
 
