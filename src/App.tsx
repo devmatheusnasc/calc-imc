@@ -36,11 +36,11 @@ const App = () => {
           <p>
             O Índice de Massa Corporal (IMC) é reconhecido pela Organização
             Mundial da Saúde (OMS) como um padrão internacional que avalia se as
-            pessoas, estão com peso ideal.
+            pessoas estão com peso ideal.
           </p>
           <input
             type="number"
-            placeholder="Digite a sua altura. Ex: 74.3 (em métros)"
+            placeholder="Digite a sua altura. Ex: 74.3 (em metros)"
             value={heightField > 0 ? heightField : ""}
             onChange={(e) => setHeightField(parseFloat(e.target.value))}
             disabled={toShow ? true : false}
