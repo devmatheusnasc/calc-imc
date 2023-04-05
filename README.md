@@ -1,6 +1,20 @@
-# Calculadora de IMC
+# BMI Calculator
 
-Projeto desenvolvido em React + Typescript, afim de praticar estudos.
+Welcome to my BMI calculator! With it, you can calculate your Body Mass Index (BMI) and find out if you have a healthy weight.
+
+# How to use
+Access the website: [Click here to visit my website](https://calc-imc-cruz.netlify.app)
+
+Enter your weight and height in the indicated fields.
+
+Click the "Calculate" button to get your BMI.
+
+In addition, the website also offers a description of what BMI is and how to interpret the results.
+
+# About the project
+This project was developed in React + Typescript as part of my programming learning journey. Feel free to explore the source code and suggest improvements.
+
+Visit the website to learn more about the BMI calculator and other amazing tools that I plan to develop. Join me on this journey towards knowledge and continuous improvement!
 
 
 # Getting Started with Create React App
