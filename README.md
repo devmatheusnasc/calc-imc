@@ -1,4 +1,4 @@
-# BMI Calculator
+# Calculadora IMC
 
 Welcome to my BMI calculator! With it, you can calculate your Body Mass Index (BMI) and find out if you have a healthy weight.
 
